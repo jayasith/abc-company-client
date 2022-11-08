@@ -10,18 +10,29 @@ const Login = () => {
   const [buttonStatus, setButtonStatus] = useState(false);
   const navigate = useNavigate();
 
-  const roles = ['manager', 'worker'];
+  const roles = ['manager', 'worker', 'admin'];
 
   const login = async (e) => {
     e.preventDefault();
     setButtonStatus(true);
-    console.log(user);
+
+    if (!user.role) {
+      setUser({ ...user, role: roles[2] });
+    }
 
     try {
       await axios.post('user/login', user);
-      setUser({});
       setButtonStatus(false);
-      navigate('/');
+
+      if (user.role === 'manager') {
+        navigate('/manager/dashboard');
+      } else if (user.role === 'worker') {
+        navigate('/worker/dashboard');
+      } else {
+        navigate('/admin/dashboard');
+      }
+
+      setUser({});
     } catch (err) {
       setError(err.response.data.message);
       setButtonStatus(false);
@@ -32,10 +43,10 @@ const Login = () => {
     <div>
       <Header />
       <section className="text-gray-600 body-font">
-        {error && <p className="text-red-500">{error}</p>}
         <div className="container px-5 sm:py-40 p-20 mx-auto flex flex-wrap items-center justify-center xl:w-1/3 lg:w-1/2 md:w-3/4 w-full">
           <div className="border-gray-100 border-2 rounded-xl p-16 flex flex-col ml-auto w-full mt-10 md:mt-0">
             <h2 className="text-gray-900 text-2xl font-medium title-font mb-5 text-center">Welcome Back</h2>
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
             <div className="relative mb-4">
               <label htmlFor="username" className="leading-7 text-sm text-gray-600">
                 Username
