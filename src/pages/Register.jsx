@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
+import axios from "axios";
 
 function Register(props) {
+	const [user, setUser] = useState({
+		name: "",
+		email: "",
+		username: "",
+		role: "",
+	});
+	const role = ["worker", "manager"];
+	const registerUser = async (e) => {
+		e.preventDefault();
+		console.log(user);
+
+		try {
+			await axios.post("/user/register", user);
+			setUser({});
+		} catch (err) {}
+	};
+
 	return (
 		<div>
 			<Header />
@@ -12,7 +30,7 @@ function Register(props) {
 							Register User
 						</h2>
 						<div className="relative mb-4">
-							<label for="name" className="leading-7 text-sm text-gray-600">
+							<label htmlFor="name" className="leading-7 text-sm text-gray-600">
 								Name
 							</label>
 							<input
@@ -20,10 +38,15 @@ function Register(props) {
 								id="name"
 								name="name"
 								className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+								value={user.name}
+								onChange={(e) => setUser({ ...user, name: e.target.value })}
 							/>
 						</div>
 						<div className="relative mb-4">
-							<label for="email" className="leading-7 text-sm text-gray-600">
+							<label
+								htmlFor="email"
+								className="leading-7 text-sm text-gray-600"
+							>
 								Email
 							</label>
 							<input
@@ -31,10 +54,15 @@ function Register(props) {
 								id="email"
 								name="email"
 								className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+								value={user.email}
+								onChange={(e) => setUser({ ...user, email: e.target.value })}
 							/>
 						</div>
 						<div className="relative mb-4">
-							<label for="username" className="leading-7 text-sm text-gray-600">
+							<label
+								htmlFor="username"
+								className="leading-7 text-sm text-gray-600"
+							>
 								Username
 							</label>
 							<input
@@ -42,22 +70,11 @@ function Register(props) {
 								id="username"
 								name="username"
 								className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+								value={user.username}
+								onChange={(e) => setUser({ ...user, username: e.target.value })}
 							/>
 						</div>
-						<div className="relative mb-4">
-							<label
-								htmlFor="password"
-								className="leading-7 text-sm text-gray-600"
-							>
-								Password
-							</label>
-							<input
-								type="password"
-								id="password"
-								name="password"
-								className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-							/>
-						</div>
+
 						<div className="relative mb-8 mt-8">
 							<div className="flex justify-left">
 								<div className="flex">
@@ -67,10 +84,14 @@ function Register(props) {
 											type="radio"
 											name="flexRadioDefault"
 											id="flexRadioDefault1"
+											value={role[0]}
+											onChange={(e) =>
+												setUser({ ...user, role: e.target.value })
+											}
 										/>
 										<label
 											className="form-check-label inline-block text-gray-800"
-											for="flexRadioDefault1"
+											htmlFor="flexRadioDefault1"
 										>
 											Worker
 										</label>
@@ -82,10 +103,14 @@ function Register(props) {
 											name="flexRadioDefault"
 											id="flexRadioDefault2"
 											checked
+											value={role[1]}
+											onChange={(e) =>
+												setUser({ ...user, role: e.target.value })
+											}
 										/>
 										<label
 											className="form-check-label inline-block text-gray-800"
-											for="flexRadioDefault2"
+											htmlFor="flexRadioDefault2"
 										>
 											Manager
 										</label>
@@ -93,7 +118,10 @@ function Register(props) {
 								</div>
 							</div>
 						</div>
-						<button className="text-white bg-indigo-500 border-0 py-2 px-8 my-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+						<button
+							className="text-white bg-indigo-500 border-0 py-2 px-8 my-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+							onClick={registerUser}
+						>
 							Register
 						</button>
 					</div>
