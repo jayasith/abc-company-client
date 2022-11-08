@@ -15,7 +15,7 @@ function Register(props) {
 		console.log(user);
 
 		try {
-			await axios.post("/user/register", user);
+			await axios.post("user/register", user);
 			setUser({});
 		} catch (err) {}
 	};
