@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import axios from 'axios';
 
-const Message = () => {
+const WorkerMessage = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
