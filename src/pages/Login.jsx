@@ -116,7 +116,7 @@ const Login = () => {
               onClick={login}
               disabled={buttonStatus}
             >
-              {buttonStatus ? 'Login in' : 'Login'}
+              {buttonStatus ? 'Login in...' : 'Login'}
             </button>
           </div>
         </div>
