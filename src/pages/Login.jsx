@@ -21,8 +21,11 @@ const Login = () => {
     }
 
     try {
-      await axios.post('user/login', user);
+      const data = await axios.post('user/login', user);
       setButtonStatus(false);
+
+      localStorage.setItem('token', JSON.stringify(data.data.token));
+      localStorage.setItem('role', JSON.stringify(data.data.role));
 
       if (user.role === 'manager') {
         navigate('/manager/dashboard');
@@ -116,7 +119,7 @@ const Login = () => {
               onClick={login}
               disabled={buttonStatus}
             >
-              {buttonStatus ? 'Login in' : 'Login'}
+              {buttonStatus ? 'Login in...' : 'Login'}
             </button>
           </div>
         </div>
