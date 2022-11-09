@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     try {
-      const data = await axios.post('user/login', user);
+      const data = await axios.post(user.role !== 'admin' ? 'user/login' : 'admin/login', user);
       setButtonStatus(false);
 
       localStorage.setItem('token', JSON.stringify(data.data.token));
