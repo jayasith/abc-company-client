@@ -9,6 +9,9 @@ import Manager from "../pages/Manager";
 import ManagerMessage from "../components/MangerMessage";
 import WorkerMessage from "../components/WorkerMessage";
 import FileUploader from '../components/FileUploader';
+import AdminDashboard from "../pages/AdminDashboard";
+import RegisterUser from "../components/RegisterUser";
+import ViewUser from "../components/ViewUser";
 const NavigationRouter = () => {
   return (
     <Routes>
@@ -20,6 +23,9 @@ const NavigationRouter = () => {
       <Route element={<ManagerMessage />} path="managermessage" />
       <Route element={<WorkerMessage />} path="workermessage" />
       <Route element={<FileUploader />} path="fileuploader" />
+      <Route element={<AdminDashboard />} path="admin/dashboard" />
+      <Route element={<RegisterUser />} path="register/user" />
+      <Route element={<ViewUser />} path="view/user" />
     </Routes>
   );
 };

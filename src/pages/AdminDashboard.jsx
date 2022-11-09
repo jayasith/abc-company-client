@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
-const ManagerHome = () => {
+const AdminDashboard = () => {
   return (
     <div>
+      <Header />
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap">
           <div class="flex flex-wrap -m-4">
@@ -24,10 +26,10 @@ const ManagerHome = () => {
                 </div>
                 <div class="flex-grow">
                   <Link
-                    to="manager/message"
+                    to="/register/user"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
-                    Save Message
+                    Register User
                     <svg
                       fill="none"
                       stroke="currentColor"
@@ -61,10 +63,10 @@ const ManagerHome = () => {
                 </div>
                 <div class="flex-grow">
                   <Link
-                    to="/fileuploader"
+                    to="/view/user"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
-                    File Upload
+                    View User
                     <svg
                       fill="none"
                       stroke="currentColor"
@@ -87,5 +89,4 @@ const ManagerHome = () => {
   );
 };
 
-export default ManagerHome;
-
+export default AdminDashboard;

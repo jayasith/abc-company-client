@@ -12,13 +12,13 @@ const WorkerMessage = () => {
     e.preventDefault();
     setButtonStatus(true);
     try {
-      await axios.post('/message/worker', message, {
+      await axios.post('/message/worker', {message}, {
         headers: {
           token: token,
         },
       });
       setButtonStatus(false);
-      setMessage({});
+      setMessage("");
     } catch (err) {
       setError(err.response.data.message);
       setButtonStatus(false);
