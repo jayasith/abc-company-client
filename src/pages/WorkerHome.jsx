@@ -1,7 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const ManagerHome = () => {
+import React from "react";
+import { Link } from "react-router-dom";
+const WorkerHome = () => {
   return (
     <div>
       <section class="text-gray-600 body-font">
@@ -23,8 +22,6 @@ const ManagerHome = () => {
                   </svg>
                 </div>
                 <div class="flex-grow">
-                
-
                   <Link
                     to="/message"
                     class="mt-3 text-indigo-500 inline-flex items-center"
@@ -62,9 +59,10 @@ const ManagerHome = () => {
                   </svg>
                 </div>
                 <div class="flex-grow">
-                 
-
-                  <Link to="/fileuploader"class="mt-3 text-indigo-500 inline-flex items-center">
+                  <Link
+                    to="/fileuploader"
+                    class="mt-3 text-indigo-500 inline-flex items-center"
+                  >
                     File Upload
                     <svg
                       fill="none"
@@ -88,5 +86,4 @@ const ManagerHome = () => {
   );
 };
 
-export default ManagerHome;
-
+export default WorkerHome;

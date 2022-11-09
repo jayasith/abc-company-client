@@ -1,11 +1,11 @@
 import React from "react";
-import Message from "../components/Message"; 
 import Header from "../components/Header"; 
+import WorkerHome from "./WorkerHome";
 const Worker = () => {
   return (
     <div>
 <Header/>
-<Message/>
+<WorkerHome/>
     </div>
 
   );
