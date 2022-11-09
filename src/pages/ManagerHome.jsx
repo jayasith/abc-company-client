@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const ManagerHome = () => {
   return (
     <div>
-
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap">
           <div class="flex flex-wrap -m-4">
@@ -24,10 +23,8 @@ const ManagerHome = () => {
                   </svg>
                 </div>
                 <div class="flex-grow">
-                
-
                   <Link
-                    to="/message"
+                    to="/managermessage"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
                     Save Message
@@ -63,9 +60,10 @@ const ManagerHome = () => {
                   </svg>
                 </div>
                 <div class="flex-grow">
-                 
-
-                  <Link to="/fileuploader"class="mt-3 text-indigo-500 inline-flex items-center">
+                  <Link
+                    to="/fileuploader"
+                    class="mt-3 text-indigo-500 inline-flex items-center"
+                  >
                     File Upload
                     <svg
                       fill="none"

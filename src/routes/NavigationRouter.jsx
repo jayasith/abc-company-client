@@ -6,7 +6,8 @@ import Login from '../pages/Login';
 import Register from "../pages/Register";
 import Worker from '../pages/Worker';
 import Manager from "../pages/Manager";
-import Message from '../components/Message';
+import ManagerMessage from "../components/MangerMessage";
+import WorkerMessage from "../components/WorkerMessage";
 import FileUploader from '../components/FileUploader';
 const NavigationRouter = () => {
   return (
@@ -16,7 +17,8 @@ const NavigationRouter = () => {
       <Route element={<Register />} path="register" />
       <Route element={<Worker />} path="worker/dashboard" />
       <Route element={<Manager />} path="manager/dashboard" />
-      <Route element={<Message />} path="message" />
+      <Route element={<ManagerMessage />} path="managermessage" />
+      <Route element={<WorkerMessage />} path="workermessage" />
       <Route element={<FileUploader />} path="fileuploader" />
     </Routes>
   );
