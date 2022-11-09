@@ -24,7 +24,7 @@ const ManagerHome = () => {
                 </div>
                 <div class="flex-grow">
                   <Link
-                    to="manager/message"
+                    to="/managermessage"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
                     Save Message
