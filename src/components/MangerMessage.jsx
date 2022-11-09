@@ -6,17 +6,23 @@ const ManagerMessage = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [buttonStatus, setButtonStatus] = useState(false);
+  const token = JSON.parse(localStorage.getItem("token"));
+
   const saveMessage = async (e) => {
     e.preventDefault();
     setButtonStatus(true);
     try {
-      await axios.post("/message/manager", message, {
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      });
+      await axios.post(
+        "/message/manager",
+        { message },
+        {
+          headers: {
+            token: token,
+          },
+        }
+      );
       setButtonStatus(false);
-      setMessage({});
+      setMessage("");
     } catch (err) {
       setError(err.response.data.message);
       setButtonStatus(false);
