@@ -15,7 +15,12 @@ function Register(props) {
 		console.log(user);
 
 		try {
-			await axios.post("user/register", user);
+			await axios.post("user/register", user,{
+				headers: {
+					token :localStorage.getItem("token")
+				}
+			});
+			
 			setUser({});
 		} catch (err) {}
 	};
