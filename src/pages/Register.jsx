@@ -19,7 +19,11 @@ const Register = () => {
     console.log(user);
 
     try {
-      await axios.post('user/register', user);
+      await axios.post("user/register", user, {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      });
       setButtonStatus(false);
       setUser({});
     } catch (err) {
