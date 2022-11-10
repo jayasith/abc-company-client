@@ -5,7 +5,6 @@ import Header from '../components/Header';
 
 const ViewUsers = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getUsers();
@@ -13,17 +12,14 @@ const ViewUsers = () => {
 
   const getUsers = async () => {
     try {
-      setLoading(true);
       const response = await axios.get('/user', {
         headers: {
           token: JSON.parse(localStorage.getItem('token')),
         },
       });
       setUsers(response.data.users);
-      setLoading(false);
     } catch (error) {
       console.log(error);
-      setLoading(false);
     }
   };
 
