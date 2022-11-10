@@ -61,7 +61,7 @@ const ManagerHome = () => {
                 </div>
                 <div class="flex-grow">
                   <Link
-                    to="/fileuploader"
+                    to="/file-uploader"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
                     File Upload
