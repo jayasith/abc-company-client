@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Header from "./Header";
-import axios from "axios";
+import React, { useState } from 'react';
+import Header from './Header';
+import axios from 'axios';
 
 const ManagerMessage = () => {
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = localStorage.getItem('token');
 
   const saveMessage = async (e) => {
     e.preventDefault();
     setButtonStatus(true);
     try {
       await axios.post(
-        "/message/manager",
+        '/message/manager',
         { message },
         {
           headers: {
@@ -22,7 +22,7 @@ const ManagerMessage = () => {
         }
       );
       setButtonStatus(false);
-      setMessage("");
+      setMessage('');
     } catch (err) {
       setError(err.response.data.message);
       setButtonStatus(false);
@@ -36,10 +36,7 @@ const ManagerMessage = () => {
           {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           <form>
             <div class="mb-5">
-              <label
-                for="message"
-                class="mb-3 block text-base font-medium text-[#07074D]"
-              >
+              <label for="message" class="mb-3 block text-base font-medium text-[#07074D]">
                 Message
               </label>
               <textarea
@@ -60,7 +57,7 @@ const ManagerMessage = () => {
                 onClick={saveMessage}
                 disabled={buttonStatus}
               >
-                {buttonStatus ? "Saving..." : "Save"}
+                {buttonStatus ? 'Saving...' : 'Save'}
               </button>
             </div>
           </form>

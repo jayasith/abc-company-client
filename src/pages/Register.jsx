@@ -12,7 +12,7 @@ const Register = () => {
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
   const role = ['worker', 'manager'];
-  const token = JSON.parse(localStorage.getItem('token'));
+  const token = localStorage.getItem('token');
 
   const registerUser = async (e) => {
     e.preventDefault();
