@@ -10,7 +10,7 @@ import ManagerMessage from '../components/MangerMessage';
 import WorkerMessage from '../components/WorkerMessage';
 import FileUploader from '../components/FileUploader';
 import AdminDashboard from '../pages/AdminDashboard';
-import ViewUser from '../components/ViewUser';
+import ViewUsers from '../pages/ViewUsers';
 
 const NavigationRouter = () => {
   return (
@@ -25,7 +25,7 @@ const NavigationRouter = () => {
       <Route element={<WorkerMessage />} path="worker/message" />
       <Route element={<FileUploader />} path="file-uploader" />
       <Route element={<Register />} path="admin/register" />
-      <Route element={<ViewUser />} path="admin/view" />
+      <Route element={<ViewUsers />} path="admin/users" />
     </Routes>
   );
 };

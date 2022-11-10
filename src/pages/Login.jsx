@@ -5,20 +5,17 @@ import axios from 'axios';
 import Header from '../components/Header';
 
 const Login = () => {
-  const [user, setUser] = useState({ username: '', password: '', role: '' });
+  const roles = ['manager', 'worker', 'admin'];
+
+  const [user, setUser] = useState({ username: '', password: '', role: roles[2] });
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
   const navigate = useNavigate();
 
-  const roles = ['manager', 'worker', 'admin'];
-
   const login = async (e) => {
     e.preventDefault();
     setButtonStatus(true);
-
-    if (!user.role) {
-      setUser({ ...user, role: roles[2] });
-    }
+    setError('');
 
     try {
       const data = await axios.post(user.role !== 'admin' ? 'user/login' : 'admin/login', user);

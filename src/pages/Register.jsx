@@ -17,7 +17,7 @@ const Register = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     setButtonStatus(true);
-    console.log(user);
+    setError('');
 
     try {
       await axios.post('user/register', user, {
@@ -26,7 +26,7 @@ const Register = () => {
         },
       });
       setButtonStatus(false);
-      setUser({});
+      setUser({ name: '', email: '', username: '', role: '' });
     } catch (err) {
       setError(err.response.data.message);
       setButtonStatus(false);

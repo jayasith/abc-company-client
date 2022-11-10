@@ -49,7 +49,7 @@ const AdminDashboard = () => {
               </Link>
             </div>
             <div className="p-4 lg:w-3/4 md:w-full">
-              <Link to="/view/user">
+              <Link to="/admin/users">
                 <div className="flex border-2 rounded-lg hover:bg-slate-100 border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col items-center justify-between">
                   <div className="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
                     <svg
