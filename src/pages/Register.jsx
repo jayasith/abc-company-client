@@ -12,6 +12,7 @@ const Register = () => {
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
   const role = ['worker', 'manager'];
+  const token = JSON.parse(localStorage.getItem('token'));
 
   const registerUser = async (e) => {
     e.preventDefault();
@@ -19,9 +20,9 @@ const Register = () => {
     console.log(user);
 
     try {
-      await axios.post("user/register", user, {
+      await axios.post('user/register', user, {
         headers: {
-          token: localStorage.getItem("token"),
+          token: token,
         },
       });
       setButtonStatus(false);
@@ -35,8 +36,8 @@ const Register = () => {
   return (
     <div>
       <Header />
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 sm:py-40 p-20 mx-auto flex flex-wrap items-center justify-center xl:w-1/3 lg:w-1/2 md:w-3/4 w-full">
+      <section className="text-gray-600 body-font h-[calc(100vh-80px)] flex items-center">
+        <div className="container px-5 mx-auto flex flex-wrap items-center justify-center xl:w-2/5 lg:w-1/2 md:w-3/4 w-full">
           <div className="border-gray-100 border-2 rounded-xl p-16 flex flex-col ml-auto w-full mt-10 md:mt-0">
             <h2 className="text-gray-900 text-2xl font-medium title-font mb-5 text-center">Register User</h2>
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
@@ -102,7 +103,6 @@ const Register = () => {
                       type="radio"
                       name="flexRadioDefault"
                       id="flexRadioDefault2"
-                      checked
                       value={role[1]}
                       onChange={(e) => setUser({ ...user, role: e.target.value })}
                     />
