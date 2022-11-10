@@ -69,7 +69,9 @@ const ViewUsers = () => {
                     </tr>
                   ))
                 ) : (
-                  <p className="text-red-500 text-sm text-center">No users found</p>
+                  <tr>
+                    <p className="text-red-500 text-sm text-center pt-4 inline-block">No users found</p>
+                  </tr>
                 )}
               </tbody>
             </table>
