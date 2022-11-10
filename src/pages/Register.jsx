@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [user, setUser] = useState({
@@ -12,7 +14,7 @@ const Register = () => {
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
   const role = ['worker', 'manager'];
-  const token = JSON.parse(localStorage.getItem('token'));
+  const token = localStorage.getItem('token');
 
   const registerUser = async (e) => {
     e.preventDefault();
@@ -24,6 +26,16 @@ const Register = () => {
         headers: {
           token: token,
         },
+      });
+      toast.success('Successfully Registered User!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
       });
       setButtonStatus(false);
       setUser({ name: '', email: '', username: '', role: '' });
@@ -121,6 +133,18 @@ const Register = () => {
               {buttonStatus ? 'Registering...' : 'Register'}
             </button>
           </div>
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         </div>
       </section>
     </div>

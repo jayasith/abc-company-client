@@ -21,8 +21,8 @@ const Login = () => {
       const data = await axios.post(user.role !== 'admin' ? 'user/login' : 'admin/login', user);
       setButtonStatus(false);
 
-      localStorage.setItem('token', JSON.stringify(data.data.token));
-      localStorage.setItem('role', JSON.stringify(data.data.role));
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('role', data.data.role);
 
       if (user.role === 'manager') {
         navigate('/manager/dashboard');
