@@ -6,7 +6,7 @@ const WorkerMessage = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [buttonStatus, setButtonStatus] = useState(false);
-  const token = JSON.parse(localStorage.getItem('token'));
+  const token = localStorage.getItem("token");
 
   const saveMessage = async (e) => {
     e.preventDefault();
