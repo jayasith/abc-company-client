@@ -23,7 +23,7 @@ const WorkerHome = () => {
                 </div>
                 <div class="flex-grow">
                   <Link
-                    to="/workermessage"
+                    to="/worker/message"
                     class="mt-3 text-indigo-500 inline-flex items-center"
                   >
                     Save Message
