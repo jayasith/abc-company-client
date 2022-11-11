@@ -27,7 +27,7 @@ const Register = () => {
           token: token,
         },
       });
-      toast.success('Successfully Registered User!', {
+      toast.success('User successfully registered!', {
         position: 'top-center',
         autoClose: 5000,
         hideProgressBar: false,
