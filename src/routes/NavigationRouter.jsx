@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
@@ -14,8 +14,6 @@ import ViewUsers from '../pages/ViewUsers';
 import NotFound from '../pages/NotFound';
 
 const NavigationRouter = () => {
-  const token = localStorage.getItem('token');
-
   return (
     <Routes>
       <Route element={<Home />} path="/" />
