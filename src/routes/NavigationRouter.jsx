@@ -33,7 +33,7 @@ const NavigationRouter = () => {
   return (
     <Routes>
       <Route element={<Home />} path="/" />
-      <Route element={<Login />} path="login" />
+      <Route element={loggedIn.state ? <Navigate to="/" replace /> : <Login />} path="login" />
       <Route
         element={loggedIn.state && loggedIn.role === 'admin' ? <Register /> : <Navigate to="/" replace />}
         path="admin/register"
