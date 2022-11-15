@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import axios from 'axios';
+import { Route, Routes } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Login from '../pages/Login';
